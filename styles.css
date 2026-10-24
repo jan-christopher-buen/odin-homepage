@@ -1,0 +1,4 @@
+/* Base styles; responsive section layouts follow. */
+* { box-sizing: border-box; }
+body { margin: 0; color: #202b30; font-family: Arial, sans-serif; line-height: 1.6; }
+a { color: inherit; }

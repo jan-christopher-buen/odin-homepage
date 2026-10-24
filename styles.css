@@ -1,4 +1,49 @@
-/* Base styles; responsive section layouts follow. */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("assets/fonts/playfair-display.ttf") format("truetype");
+  font-weight: 400 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("assets/fonts/roboto.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Shared typography and page rhythm. */
+:root {
+  --accent: #087f95;
+  --ink: #172b30;
+  --muted: #526066;
+  --shadow: 0 3px 10px #132d302b;
+  --heading-font: "Playfair Display", Georgia, serif;
+}
 * { box-sizing: border-box; }
-body { margin: 0; color: #202b30; font-family: Arial, sans-serif; line-height: 1.6; }
-a { color: inherit; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-underline-offset: .25em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 3px solid #a44116; outline-offset: 5px; }
+h1, h2, h3 { margin: 0; font-family: var(--heading-font); font-weight: 400; line-height: 1.2; }
+h2 { font-size: clamp(2rem, 3.4vw, 2.75rem); }
+p { margin: 1.2rem 0; }
+.container { width: min(88%, 1200px); margin-inline: auto; }
+.skip-link { position: absolute; top: 1rem; left: 1rem; z-index: 5; padding: .7rem 1rem; background: white; transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
+
+/* The diagonal stays within its own box, avoiding page overflow. */
+.introduction { position: relative; padding-block: 4rem 5rem; }
+.introduction::before { content: ""; position: absolute; inset: 0 0 1rem; background: var(--accent); clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%); z-index: -1; }
+.introduction-inner { display: flex; align-items: center; }
+.portrait { position: relative; flex: 0 0 43%; min-height: 510px; background: #173f43 url("assets/images/workspace.svg") center / cover; box-shadow: var(--shadow); }
+h1 { position: absolute; inset: auto 1.2rem 1.4rem; color: white; font-size: clamp(2.6rem, 4.5vw, 4.4rem); text-shadow: 0 2px 5px #092d34; overflow-wrap: anywhere; }
+.about { flex: 1; padding: 2.5rem 2rem 2rem; background: white; box-shadow: var(--shadow); }
+.about p { color: var(--muted); font-size: 1.1rem; }
+.social-links { margin-top: 1.8rem; text-align: right; font-size: .95rem; }

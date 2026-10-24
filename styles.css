@@ -19,7 +19,9 @@
   --shadow: 0 3px 10px #132d302b;
   --heading-font: "Playfair Display", Georgia, serif;
 }
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   color: var(--ink);
@@ -27,85 +29,324 @@ body {
   font-family: Roboto, Arial, sans-serif;
   line-height: 1.6;
 }
-img { display: block; max-width: 100%; }
-a { color: inherit; text-underline-offset: .25em; }
-a:hover { text-decoration-thickness: 2px; }
-a:focus-visible { outline: 3px solid #a44116; outline-offset: 5px; }
-h1, h2, h3 { margin: 0; font-family: var(--heading-font); font-weight: 400; line-height: 1.2; }
-h2 { font-size: clamp(2rem, 3.4vw, 2.75rem); }
-p { margin: 1.2rem 0; }
-.container { width: min(88%, 1200px); margin-inline: auto; }
-.skip-link { position: absolute; top: 1rem; left: 1rem; z-index: 5; padding: .7rem 1rem; background: white; transform: translateY(-200%); }
-.skip-link:focus { transform: translateY(0); }
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-underline-offset: .25em;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+a:focus-visible {
+  outline: 3px solid #a44116;
+  outline-offset: 5px;
+}
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-weight: 400;
+  line-height: 1.2;
+}
+h2 {
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+}
+p {
+  margin: 1.2rem 0;
+}
+.container {
+  width: min(88%, 1200px);
+  margin-inline: auto;
+}
+.skip-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 5;
+  padding: .7rem 1rem;
+  background: white;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
 
 /* The diagonal stays within its own box, avoiding page overflow. */
-.introduction { position: relative; padding-block: 4rem 5rem; }
-.introduction::before { content: ""; position: absolute; inset: 0 0 1rem; background: var(--accent); clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%); z-index: -1; }
-.introduction-inner { display: flex; align-items: center; }
-.portrait { position: relative; flex: 0 0 43%; min-height: 510px; background: linear-gradient(to top, #092d34cc, transparent 45%), #173f43 url("assets/images/workspace.svg") center / cover; box-shadow: var(--shadow); }
-h1 { position: absolute; inset: auto 1.2rem 1.4rem; color: white; font-size: clamp(2.6rem, 4.5vw, 4.4rem); text-shadow: 0 2px 5px #092d34; overflow-wrap: anywhere; }
-.about { flex: 1; padding: 2.5rem 2rem 2rem; background: white; box-shadow: var(--shadow); }
-.about p { color: var(--muted); font-size: 1.1rem; }
-.social-links { margin-top: 1.8rem; text-align: right; font-size: .95rem; }
+.introduction {
+  position: relative;
+  padding-block: 4rem 5rem;
+}
+.introduction::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 1rem;
+  background: var(--accent);
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+  z-index: -1;
+}
+.introduction-inner {
+  display: flex;
+  align-items: center;
+}
+.portrait {
+  position: relative;
+  flex: 0 0 43%;
+  min-height: 510px;
+  background: linear-gradient(to top, #092d34cc, transparent 45%), #173f43 url("assets/images/workspace.svg") center / cover;
+  box-shadow: var(--shadow);
+}
+h1 {
+  position: absolute;
+  inset: auto 1.2rem 1.4rem;
+  color: white;
+  font-size: clamp(2.6rem, 4.2vw, 4rem);
+  text-shadow: 0 2px 5px #092d34;
+  overflow-wrap: anywhere;
+}
+.about {
+  flex: 1;
+  padding: 2.5rem 2rem 2rem;
+  background: white;
+  box-shadow: var(--shadow);
+}
+.about p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+.social-links {
+  margin-top: 1.8rem;
+  text-align: right;
+  font-size: .95rem;
+}
 
 /* Project previews retain the reference's image-over-description cards. */
-.work { padding-block: 2rem 7rem; }
-.work > h2 { margin-bottom: 1.25rem; }
-.project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem 2rem; }
-.project-card { display: flex; flex-direction: column; min-width: 0; box-shadow: var(--shadow); background: white; }
-.project-image { width: 100%; aspect-ratio: 1.38; object-fit: cover; object-position: top; background: #eaf0ef; }
-.project-details { padding: 1rem 1.25rem 1.5rem; flex: 1; }
-.project-heading { display: flex; align-items: start; justify-content: space-between; gap: .5rem; }
-h3 { font-size: 1.3rem; overflow-wrap: anywhere; }
-.project-links { display: flex; flex-shrink: 0; margin: -.35rem -.4rem 0 0; }
-.project-links a { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; text-decoration: none; font: 600 1.15rem / 1 monospace; }
-.project-links a:hover { background: #e3f1f2; }
-.project-details p { margin: .7rem 0 0; color: var(--muted); font-size: .95rem; }
+.work {
+  padding-block: 2rem 7rem;
+}
+.work > h2 {
+  margin-bottom: 1.25rem;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem 2rem;
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  box-shadow: var(--shadow);
+  background: white;
+}
+.project-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.38;
+  object-fit: cover;
+  object-position: top;
+  background: #eaf0ef;
+}
+.project-details {
+  padding: 1rem 1.25rem 1.5rem;
+  flex: 1;
+}
+.project-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: .5rem;
+}
+h3 {
+  font-size: 1.3rem;
+  overflow-wrap: anywhere;
+}
+.project-links {
+  display: flex;
+  flex-shrink: 0;
+  margin: -.35rem -.4rem 0 0;
+}
+.project-links a {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-decoration: none;
+  font: 600 1.15rem / 1 monospace;
+}
+.project-links a:hover {
+  background: #e3f1f2;
+}
+.project-details p {
+  margin: .7rem 0 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
 
-.contact { padding-block: 3.5rem; background: var(--accent); color: white; }
-.contact-inner { display: grid; grid-template-columns: 2fr 3fr; align-items: start; gap: 3rem; }
-.contact-copy p { max-width: 30ch; font-size: 1.15rem; }
-.contact-link { display: inline-block; padding-block: .5rem; font-size: 1.1rem; }
-.contact a:focus-visible { outline-color: white; }
-.contact-copy .contact-note { margin-top: 3rem; font-size: .95rem; }
-.contact-art { width: 100%; height: 440px; object-fit: cover; object-position: center 46%; }
+.contact {
+  padding-block: 3.5rem;
+  background: var(--accent);
+  color: white;
+}
+.contact-inner {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  align-items: start;
+  gap: 3rem;
+}
+.contact-copy p {
+  max-width: 30ch;
+  font-size: 1.15rem;
+}
+.contact-link {
+  display: inline-block;
+  padding-block: .5rem;
+  font-size: 1.1rem;
+}
+.contact a:focus-visible {
+  outline-color: white;
+}
+.contact-copy .contact-note {
+  margin-top: 3rem;
+  font-size: .95rem;
+}
+.contact-art {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  object-position: center 46%;
+}
 
 /* Tablet: the image overlaps the panel; prose flows alongside and below it. */
 @media (min-width: 640px) and (max-width: 1023px) {
-  .container { width: 84%; }
-  .introduction { padding-top: 9rem; padding-bottom: 3.5rem; }
-  .introduction-inner { position: relative; display: flow-root; padding: 2rem; background: white; box-shadow: var(--shadow); }
-  .portrait { position: static; float: left; width: 49%; min-height: 340px; margin: -6rem 1.5rem 1rem -3rem; }
-  h1 { inset: -6.3rem 0 auto 47%; font-size: clamp(2rem, 4.3vw, 2.8rem); }
-  .about { padding: 0; box-shadow: none; }
-  .about h2 { text-align: center; padding-top: .3rem; }
-  .about p { font-size: 1.05rem; }
-  .social-links { clear: both; }
-  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem 1.75rem; }
-  .project-heading { flex-wrap: wrap; }
-  .contact-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .contact-art { height: 440px; object-position: 44% center; }
+  .container {
+    width: 84%;
+  }
+  .introduction {
+    padding-top: 9rem;
+    padding-bottom: 3.5rem;
+  }
+  .introduction-inner {
+    position: relative;
+    display: flow-root;
+    padding: 2rem;
+    background: white;
+    box-shadow: var(--shadow);
+  }
+  .portrait {
+    position: static;
+    float: left;
+    width: 49%;
+    min-height: 340px;
+    margin: -6rem 1.5rem 1rem -3rem;
+  }
+  h1 {
+    inset: -6.3rem 0 auto 47%;
+    font-size: clamp(2rem, 4.3vw, 2.8rem);
+  }
+  .about {
+    padding: 0;
+    box-shadow: none;
+  }
+  .about h2 {
+    text-align: center;
+    padding-top: .3rem;
+  }
+  .about p {
+    font-size: 1.05rem;
+  }
+  .social-links {
+    clear: both;
+  }
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 1.75rem;
+  }
+  .project-heading {
+    flex-wrap: wrap;
+  }
+  .contact-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .contact-art {
+    height: 440px;
+    object-position: 44% center;
+  }
 }
 
 /* Mobile: independent introduction, single cards, and a full-width footer image. */
 @media (max-width: 639px) {
-  .container { width: 88%; }
-  .introduction { padding-block: 1.5rem 2rem; }
-  .introduction::before { inset: 0 0 auto; height: 410px; clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%); }
-  .introduction-inner { display: block; }
-  .portrait { min-height: 0; height: auto; aspect-ratio: 4 / 5; background-position: center; }
-  h1 { font-size: clamp(2.5rem, 9vw, 3.6rem); inset: auto 1rem 1.1rem; }
-  .about { padding: 2rem 0 0; box-shadow: none; }
-  .about h2, .work > h2, .contact h2 { text-align: center; }
-  .about p { font-size: 1.05rem; }
-  .social-links { text-align: center; }
-  .work { padding-block: 2rem 5rem; }
-  .project-grid { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
-  .project-details { min-height: 160px; }
-  .contact { padding-block: 2.5rem 0; }
-  .contact-inner { display: block; width: 100%; }
-  .contact-copy { width: 88%; margin-inline: auto; padding-bottom: 2rem; }
-  .contact-copy p { max-width: none; }
-  .contact-copy .contact-note { margin-top: 1.5rem; }
-  .contact-art { height: auto; max-height: 600px; aspect-ratio: 4 / 5; object-position: center; }
+  .container {
+    width: 88%;
+  }
+  .introduction {
+    padding-block: 1.5rem 2rem;
+  }
+  .introduction::before {
+    inset: 0 0 auto;
+    height: 410px;
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+  }
+  .introduction-inner {
+    display: block;
+  }
+  .portrait {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    background-position: center;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 9vw, 3.6rem);
+    inset: auto 1rem 1.1rem;
+  }
+  .about {
+    padding: 2rem 0 0;
+    box-shadow: none;
+  }
+  .about h2, .work > h2, .contact h2 {
+    text-align: center;
+  }
+  .about p {
+    font-size: 1.05rem;
+  }
+  .social-links {
+    text-align: center;
+  }
+  .work {
+    padding-block: 2rem 5rem;
+  }
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+  }
+  .project-details {
+    min-height: 160px;
+  }
+  .contact {
+    padding-block: 2.5rem 0;
+  }
+  .contact-inner {
+    display: block;
+    width: 100%;
+  }
+  .contact-copy {
+    width: 88%;
+    margin-inline: auto;
+    padding-bottom: 2rem;
+  }
+  .contact-copy p {
+    max-width: none;
+  }
+  .contact-copy .contact-note {
+    margin-top: 1.5rem;
+  }
+  .contact-art {
+    height: auto;
+    max-height: 600px;
+    aspect-ratio: 4 / 5;
+    object-position: center;
+  }
 }
